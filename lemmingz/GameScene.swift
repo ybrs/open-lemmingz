@@ -153,11 +153,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hero.name = "hero"
         hero.position = self.enterNode.position
         hero.size = CGSize(width: 32, height: 32)
-        hero.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 10.0, height: 32.0))
+        hero.physicsBody = SKPhysicsBody(circleOfRadius: 14)
         
         hero.physicsBody!.categoryBitMask = CollisionTypes.Player.rawValue
         hero.physicsBody!.contactTestBitMask = CollisionTypes.Wall.rawValue
-//        hero.physicsBody!.collisionBitMask = CollisionTypes.Wall.rawValue
+        hero.physicsBody!.collisionBitMask = CollisionTypes.Wall.rawValue
         
         
         hero.physicsBody!.dynamic = true
