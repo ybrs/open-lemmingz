@@ -16,6 +16,8 @@
 		B7D8C6741C3FBD0100FD5C3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C6721C3FBD0100FD5C3C /* LaunchScreen.storyboard */; };
 		B7D8C67F1C3FBD0200FD5C3C /* lemmingzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D8C67E1C3FBD0200FD5C3C /* lemmingzTests.swift */; };
 		B7D8C68A1C3FBD0200FD5C3C /* lemmingzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D8C6891C3FBD0200FD5C3C /* lemmingzUITests.swift */; };
+		B7D8C6981C3FBF2400FD5C3C /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C6971C3FBF2400FD5C3C /* level1.txt */; };
+		B7D8C69A1C3FBFA500FD5C3C /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C6991C3FBFA500FD5C3C /* block.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		B7D8C6851C3FBD0200FD5C3C /* lemmingzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lemmingzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D8C6891C3FBD0200FD5C3C /* lemmingzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lemmingzUITests.swift; sourceTree = "<group>"; };
 		B7D8C68B1C3FBD0200FD5C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7D8C6971C3FBF2400FD5C3C /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		B7D8C6991C3FBFA500FD5C3C /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 		B7D8C6591C3FBD0100FD5C3C = {
 			isa = PBXGroup;
 			children = (
+				B7D8C6991C3FBFA500FD5C3C /* block.png */,
+				B7D8C6971C3FBF2400FD5C3C /* level1.txt */,
 				B7D8C6641C3FBD0100FD5C3C /* lemmingz */,
 				B7D8C67D1C3FBD0200FD5C3C /* lemmingzTests */,
 				B7D8C6881C3FBD0200FD5C3C /* lemmingzUITests */,
@@ -235,10 +241,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D8C6981C3FBF2400FD5C3C /* level1.txt in Resources */,
 				B7D8C6681C3FBD0100FD5C3C /* GameScene.sks in Resources */,
 				B7D8C6741C3FBD0100FD5C3C /* LaunchScreen.storyboard in Resources */,
 				B7D8C6711C3FBD0100FD5C3C /* Assets.xcassets in Resources */,
 				B7D8C66F1C3FBD0100FD5C3C /* Main.storyboard in Resources */,
+				B7D8C69A1C3FBFA500FD5C3C /* block.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
