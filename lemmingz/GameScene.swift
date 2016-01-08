@@ -98,8 +98,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
 
         loadLevel()
-        
-        addSprites()
+        for i in 1...20 {
+            let wait = SKAction.waitForDuration(Double(i))
+            let action = SKAction.runBlock({
+                self.addSprites()
+                NSLog("runnnnnnnnn")
+            })
+            self.runAction(SKAction.sequence([wait, action]))
+        }
         
     }
     
@@ -120,9 +126,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
 //        NSLog("%@", contact.bodyA)
-        NSLog("%@", contact.bodyB)
+//        NSLog("%@", contact.bodyB)
 //        NSLog("%@", NSStringFromCGPoint(contact.contactPoint))
-        NSLog("begin contact %@", NSStringFromCGVector(contact.contactNormal))
+//        NSLog("begin contact %@", NSStringFromCGVector(contact.contactNormal))
 //        NSLog("%f", contact.collisionImpulse)
         
         let node:SKNode = contact.bodyB.node!
