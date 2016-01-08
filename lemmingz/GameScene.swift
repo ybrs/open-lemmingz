@@ -98,8 +98,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
 
         loadLevel()
-        for i in 1...20 {
-            let wait = SKAction.waitForDuration(Double(i))
+        for i in 1...50 {
+            let wait = SKAction.waitForDuration(Double(i) / 2)
             let action = SKAction.runBlock({
                 self.addSprites()
                 NSLog("runnnnnnnnn")
@@ -132,6 +132,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        NSLog("%f", contact.collisionImpulse)
         
         let node:SKNode = contact.bodyB.node!
+        let nodeB:SKNode = contact.bodyA.node!
+        
+        if nodeB.name == "exit" {
+            node.removeFromParent()
+            return
+        }
+        
         if let hero = node as? Hero {
             if hero.name == "hero" {
                 if contact.contactNormal.dy == 1 {
@@ -162,7 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hero.physicsBody = SKPhysicsBody(circleOfRadius: 14)
         
         hero.physicsBody!.categoryBitMask = CollisionTypes.Player.rawValue
-        hero.physicsBody!.contactTestBitMask = CollisionTypes.Wall.rawValue
+        hero.physicsBody!.contactTestBitMask = CollisionTypes.Wall.rawValue | CollisionTypes.Exit.rawValue
         hero.physicsBody!.collisionBitMask = CollisionTypes.Wall.rawValue
         
         
@@ -217,6 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         } else if letter == "D"  {
                             // load door
                             let node = SKSpriteNode(imageNamed: "door")
+                            node.name = "exit"
                             node.position = position
                             
                             node.size = CGSize(width: blockSize, height: blockSize)
@@ -225,6 +233,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             node.physicsBody!.categoryBitMask = CollisionTypes.Exit.rawValue
                             node.physicsBody!.dynamic = false
                             addChild(node)
+                            
                         } else if letter == "E"  {
                             // load star
                             self.enterNode = SKSpriteNode(imageNamed: "entrance")
