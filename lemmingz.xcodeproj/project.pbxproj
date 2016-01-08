@@ -18,6 +18,9 @@
 		B7D8C68A1C3FBD0200FD5C3C /* lemmingzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D8C6891C3FBD0200FD5C3C /* lemmingzUITests.swift */; };
 		B7D8C6981C3FBF2400FD5C3C /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C6971C3FBF2400FD5C3C /* level1.txt */; };
 		B7D8C69A1C3FBFA500FD5C3C /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C6991C3FBFA500FD5C3C /* block.png */; };
+		B7D8C69E1C3FCCD600FD5C3C /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C69D1C3FCCD600FD5C3C /* door.png */; };
+		B7D8C6A01C3FCEF100FD5C3C /* entrance.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C69F1C3FCEF100FD5C3C /* entrance.png */; };
+		B7D8C6A21C3FCFA400FD5C3C /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B7D8C6A11C3FCFA400FD5C3C /* sprites.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		B7D8C68B1C3FBD0200FD5C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7D8C6971C3FBF2400FD5C3C /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
 		B7D8C6991C3FBFA500FD5C3C /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
+		B7D8C69D1C3FCCD600FD5C3C /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
+		B7D8C69F1C3FCEF100FD5C3C /* entrance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrance.png; sourceTree = "<group>"; };
+		B7D8C6A11C3FCFA400FD5C3C /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,9 @@
 		B7D8C6591C3FBD0100FD5C3C = {
 			isa = PBXGroup;
 			children = (
+				B7D8C6A11C3FCFA400FD5C3C /* sprites.atlas */,
+				B7D8C69F1C3FCEF100FD5C3C /* entrance.png */,
+				B7D8C69D1C3FCCD600FD5C3C /* door.png */,
 				B7D8C6991C3FBFA500FD5C3C /* block.png */,
 				B7D8C6971C3FBF2400FD5C3C /* level1.txt */,
 				B7D8C6641C3FBD0100FD5C3C /* lemmingz */,
@@ -242,11 +251,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7D8C6981C3FBF2400FD5C3C /* level1.txt in Resources */,
+				B7D8C6A21C3FCFA400FD5C3C /* sprites.atlas in Resources */,
 				B7D8C6681C3FBD0100FD5C3C /* GameScene.sks in Resources */,
 				B7D8C6741C3FBD0100FD5C3C /* LaunchScreen.storyboard in Resources */,
 				B7D8C6711C3FBD0100FD5C3C /* Assets.xcassets in Resources */,
 				B7D8C66F1C3FBD0100FD5C3C /* Main.storyboard in Resources */,
+				B7D8C69E1C3FCCD600FD5C3C /* door.png in Resources */,
 				B7D8C69A1C3FBFA500FD5C3C /* block.png in Resources */,
+				B7D8C6A01C3FCEF100FD5C3C /* entrance.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
