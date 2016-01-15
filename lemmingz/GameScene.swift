@@ -18,7 +18,7 @@ enum CollisionTypes: UInt32 {
 class Hero: SKSpriteNode {
     var _running = false
     var _direction = CGRectEdge.MaxXEdge
-    
+    var isFalling = false
     var running : Bool {
         get {
             return self._running
@@ -48,10 +48,15 @@ class Hero: SKSpriteNode {
         }
     }
     
+    func clearAnimations(){
+        self.removeActionForKey("running")
+        self.removeActionForKey("run")
+        self.removeActionForKey("falling")
+    }
+    
     func updateActions() {
         if !self._running {
-            self.removeActionForKey("running")
-            self.removeActionForKey("run")
+            self.clearAnimations()
         } else if self.parent != nil {
             let heroAtlas = SKTextureAtlas(named: "sprites.atlas")
 
@@ -98,7 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
 
         loadLevel()
-        for i in 1...50 {
+        for i in 1...20 {
             let wait = SKAction.waitForDuration(Double(i) / 2)
             let action = SKAction.runBlock({
                 self.addSprites()
@@ -115,13 +120,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        NSLog("%@", NSStringFromCGPoint(contact.contactPoint))
 //        NSLog("%@", NSStringFromCGVector(contact.contactNormal))
 //        NSLog("%f", contact.collisionImpulse)
-        
-        let hero:SKNode = contact.bodyB.node!
-        if hero.actionForKey("run") == nil {
-            hero.removeActionForKey("run")
+                let node:SKNode = contact.bodyB.node!
+
+        if node.actionForKey("run") == nil {
+            node.removeActionForKey("run")
             
-            hero.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            node.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
         }
+        
+
+        
+        
+
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -140,6 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if let hero = node as? Hero {
+            
             if hero.name == "hero" {
                 if contact.contactNormal.dy == 1 {
                     NSLog("same direction no change")
@@ -148,12 +159,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     // Hit by right
                     NSLog("change direction right")
                     hero.direction = CGRectEdge.MinXEdge
-                    
                 } else if contact.contactNormal.dx == 1 {
                     NSLog("change direction left")
-                    
                     hero.direction = CGRectEdge.MaxXEdge
                 }
+                
             }
         }
         
@@ -277,6 +287,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        enumerateChildNodesWithName("hero", usingBlock: {node, _ in
+            if let hero = node as? Hero {
+                if((hero.physicsBody!.velocity.dx >= 0) && (hero.physicsBody!.velocity.dy > 0.0)) {
+                    // we are falling
+                    if !hero.isFalling {
+                        hero.isFalling = true
+                        hero.clearAnimations()
+                        // sprite 11 fall right
+                        // sprite 27 fall left
+                        NSLog("attach falling animation")
+                        let heroAtlas = SKTextureAtlas(named: "sprites.atlas")
+                        let hero_run_anim = SKAction.animateWithTextures([
+                            heroAtlas.textureNamed("sprite_27"),
+                            heroAtlas.textureNamed("sprite_11"),
+                            ], timePerFrame: 0.06)
+                        
+                        let run = SKAction.repeatActionForever(hero_run_anim)
+                        self.runAction(run, withKey: "falling")
+                    }
+                }
+            }
+            
+            
+            
+            
+        })
     }
 }

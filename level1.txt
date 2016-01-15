@@ -1,6 +1,6 @@
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 x  E                           x
-x      D                       x
+x      x                       x
 x  xxxxx                       x
 x                              x
 x                              x
@@ -9,10 +9,10 @@ x xxx             xxxxxxxx     x
 x      x                       x
 x   xxxx                       x
 x                              x
-xx                             x
+xx    xxxxxxxxxxxx             x
 x xxxx                         x
 x    xxxx                      x
-x       xxxxxxxxxxxxxxxx       x
+x       xxxxxxxxx              x
 x                              x
-x                              x
+x                           D  x
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
